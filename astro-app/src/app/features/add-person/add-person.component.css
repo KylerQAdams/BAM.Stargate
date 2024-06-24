@@ -1,0 +1,10 @@
+.add-person {
+  display: flex;
+  flex-direction: column;
+  grid-gap: 0.5rem;
+}
+
+.btn-submit {
+  width: 50%;
+  transform: translate(50%, 0);
+}

@@ -1,0 +1,52 @@
+
+<table class="tbl-view">
+    <span class="right"><i class="fa fa-refresh" (click)="peopleChangedReceived();"></i></span>
+    <tr>
+        <th>Internal ID</th>
+        <th>Name</th>
+        <th>Current Rank</th>
+        <th>Current Duty Title</th>
+        <th>Start Date</th>
+        <th>End Date</th>        
+        <th>View Duties</th>
+    </tr>
+    <tr *ngFor="let person of people">
+        <td>{{person.personId}}</td>
+        <td>{{person.name}}</td>
+        <td>{{person.currentRank}}</td>
+        <td>{{person.currentDutyTitle}}</td>
+        <td>{{datePipe.transform(person.careerStartDate, "MM/dd/yyyy")}}</td>
+        <td>{{datePipe.transform(person.careerEndDate, "MM/dd/yyyy")}}</td>
+        <td><i class="fa-solid fa-up-right-from-square" (click)="viewDuties(person);" *ngIf="person.careerStartDate"></i></td>
+    </tr>
+</table>
+
+
+@if(dutySubject.length > 0)
+{
+    <div class="duty-modal">
+        <div class="modal-container">
+            <card [title]="dutySubject">
+                <table class="tbl-view">
+                    <tr>
+                <th>Internal ID</th>
+                <th>Rank</th>
+                <th>Duty Title</th>
+                <th>Start Date</th>
+                <th>End Date</th>        
+                </tr>
+                <tr *ngFor="let duty of duties">
+                    <td>{{duty.id}}</td>
+                    <td>{{duty.rank}}</td>
+                    <td>{{duty.dutyTitle}}</td>
+                    <td>{{datePipe.transform(duty.dutyStartDate)}}</td>
+                    <td>{{datePipe.transform(duty.dutyEndDate)}}</td>
+                </tr>
+                </table>
+                <span class="right">
+                    <button class="btn btn-primary" (click)="dutySubject='';" autofocus>Close</button>
+                </span>
+            </card>
+        </div>
+    </div>
+}

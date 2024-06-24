@@ -1,0 +1,16 @@
+.card-container {
+  background-color: white;
+  min-width: 20rem;
+  padding: 0.8rem;
+  margin: 1rem;
+  border-radius: 0.25rem;
+  box-shadow: 0 0.2rem 0.4rem #88888880;
+  border: 0.1rem solid #88888880;
+  display: inline-block;
+}
+
+.card-title {
+  font-size: 1rem;
+  font-weight: bold;
+  margin-bottom: 2rem;
+}

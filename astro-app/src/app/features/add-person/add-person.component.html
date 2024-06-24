@@ -1,0 +1,13 @@
+<form (ngSubmit)="$event.preventDefault(); submitPerson();" >
+    <div class="add-person mb-3">
+        <label for="inputPerson">Name: 
+            <span *ngIf="newPersonControl.invalid && newPersonControl.dirty && newPersonControl.touched">
+                <small class="text-danger" *ngIf="newPersonControl.hasError('required')"> *Required</small>
+            <small class="text-danger" *ngIf="newPersonControl.hasError('minlength')"> *Must be at least 3 characters long</small>
+            </span>
+        </label>
+        <input class="mb-3" id="inputPerson" type="text" [formControl]="newPersonControl">
+        <button class="btn btn-primary btn-submit mb-3" type="submit" [disabled]="newPersonControl.invalid || !newPersonControl.dirty">Send</button>
+        <small class="text-danger" *ngIf="errorMsg.length > 0">{{errorMsg}}</small>
+    </div>
+</form> 
